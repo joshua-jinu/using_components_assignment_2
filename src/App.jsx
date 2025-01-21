@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Postcard from './components/postcard';
 
 function App() {
 
@@ -29,10 +30,21 @@ function App() {
     },
   ];
 
+  const stylobj ={
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "row"
+  }
+
   return (
-    <>
-      
-    </>
+    <div style={stylobj}>
+      {initialPosts.map((post)=>
+        (<Postcard
+          key={post.id}
+          {...post}
+        />)
+      )}
+    </div>
   )
 }
 
